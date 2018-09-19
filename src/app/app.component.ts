@@ -58,22 +58,22 @@ export class Evgy {
     this.pages = [
       { icon:'copy', title:'Pläne', component: 'TabsPage'},
       { icon:'', title:'Vertretungsplan', component: 'TabsPage'},
-      { icon:'', title:'Klausurplan', component: 'EventsPage'},
-      { icon:'', title:'Veranstaltungen', component: 'EventsPage'},
+      { icon:'list', title:'Klausurplan', component: 'EventsPage'}, //filter -> Klausuren
+      { icon:'calendar', title:'Veranstaltungen', component: 'EventsPage'},
       //       { icon:'list', title: 'Listen', component: ''}, -> Liste zum eintragen? /Kategorie noch unschlüssig
       // --- Neuigkeiten --- (sollen mit Filtern angesteuert werden)
-      { icon:'megaphone', title: 'Neuigkeiten', component: 'NewsPage'},
-      { icon:'flame', title:'Top', component: 'NewsPage'},
-      { icon:'paper-plane', title:'Neu', component: 'NewsPage'},
-      { icon:'flag', title:'Angepinnt', component: 'NewsPage'},
-      // --- Community ---
-      { icon:'globe', title: 'Community', component: 'TabsPage'},
-      { icon:'mail', title:'Nachrichten', component: 'MessagesPage'},
-      //       { icon:'', title: 'Kummerkasten, component: 'NewsPage'},
-      { icon:'stats', title:'Umfragen', component: 'SurveysPage'},
-      { icon:'cloud-upload', title:'Einreichen', component: 'UploadPage'},
-      // --- Sonstiges ---
-      { icon:'', title:'Profil', component: "ProfilePage" }, 
+      { icon:'megaphone', title: 'Neuigkeiten', component: 'NewsPage'}, // Kategorie
+      { icon:'flame', title:'Top', component: 'NewsPage'}, // Filter -> top
+      { icon:'paper-plane', title:'Neu', component: 'NewsPage'}, // Filter -> new
+      { icon:'flag', title:'Angepinnt', component: 'NewsPage'}, // Filter -> flag
+      // // --- "Community" ---
+      // { icon:'globe', title: 'Community', component: 'TabsPage'}, // Kategorie
+      // { icon:'mail', title:'Nachrichten', component: 'MessagesPage'},
+      // //       { icon:'', title: 'Kummerkasten, component: ''},
+      // { icon:'stats', title:'Umfragen', component: 'SurveysPage'},
+      // { icon:'cloud-upload', title:'Einreichen', component: 'UploadPage'},
+      // // --- Sonstiges ---
+      // { icon:'', title:'Profil', component: "ProfilePage" }, 
       { icon:'settings', title:'Einstellungen', component: 'SettingsPage'}, 
       { icon:'', title:'FAQ', component: 'FAQPage'}, 
       { icon:'', title:'Kontakt & Feedback', component: 'ContactPage'} 

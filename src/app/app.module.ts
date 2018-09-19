@@ -16,7 +16,6 @@ import { GooglePlus } from '@ionic-native/google-plus';
 
 // Providers
 import { AuthData } from '../providers/auth-data';
-import { RadioPlayer } from '../providers/radio-service';
 import { RssProvider } from '../providers/rss/rss';
 
 // Google Firebase
@@ -58,7 +57,6 @@ export const config = {
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthData,
     Facebook,
-    RadioPlayer,
     Facebook,
     GooglePlus,
     RssProvider,

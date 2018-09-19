@@ -1,0 +1,101 @@
+
+<ion-menu [content]="content">
+  <ion-content>
+<!-- Android -->
+    <!-- <div id="menu-material" showWhen="android"> -->
+    <div id="menu-material"> 
+      <ion-header class="menu-header">   
+        <img *ngIf="(profile | async)?.photo" src="{{(profile | async)?.photo}}" class="user-avatar pop-in round" alt="">
+        <img *ngIf="!(profile | async)?.photo" src="https://pbs.twimg.com/profile_images/834457277830541312/bYMCvtHD.jpg" class="user-avatar pop-in round" alt="">
+        <p *ngIf="(profile | async)?.name" class="name">{{(profile | async)?.name}}</p>
+        <p *ngIf="!(profile | async)?.name" class="name">Max Mustermann</p>
+        <p *ngIf="(profile | async)?.role" class="role">{{(profile | async)?.role}}</p>
+        <p *ngIf="!(profile | async)?.role" class="role">Anonymous</p>
+        <br>
+        <p *ngIf="(profile | async)?.class" class="class">{{(profile | async)?.class}}</p>
+        <p *ngIf="!(profile | async)?.class" class="class">Klasse A10</p>
+      </ion-header>
+
+      <div class="list-box">
+        <ion-list  no-lines>
+          <div *ngFor="let d of menu">
+            <ion-item tappable (click)="toggleDetails(d)">
+              <ion-icon  color="gray" [name]="d.iconLeft" item-left></ion-icon>
+                <p>{{d.title}}</p>
+              <ion-icon item-right [name]="d.icon"></ion-icon>
+            </ion-item>
+            <div class="sub-menu" *ngIf="d.showDetails">
+              <ion-item tappable menuClose item-right *ngFor="let item of d.items" (click)="openPage(item)">
+                <div>
+                  <p>{{item.name}}</p>
+                </div>             
+              </ion-item>
+            </div>
+          </div> 
+          <div *ngFor="let p of pages">
+            <ion-item menuClose (click)="openPage(p)">
+              <ion-icon  [name]="p.icon" color="gray"item-left></ion-icon>
+                <p>{{p.title}}</p>
+            </ion-item>
+          </div> 
+        </ion-list>
+      </div>
+    </div>
+
+<!-- iOS -->
+    <div id="menu-ios" showWhen="ios">
+      <ion-list no-lines>
+        <div *ngFor="let d of menu">
+          <ion-item tappable (click)="toggleDetails(d)">
+            <ion-icon  color="gray" [name]="d.iconLeft" item-left></ion-icon>
+              <p>{{d.title}}</p>
+            <ion-icon item-right [name]="d.icon"></ion-icon>
+          </ion-item>
+          <div class="sub-menu" *ngIf="d.showDetails" >
+            <ion-item tappable  menuClose item-right *ngFor="let item of d.items" (click)="openPage(item)">
+              <div>
+                <p>{{item.name}}</p>
+              </div>             
+            </ion-item>
+          </div>
+        </div> 
+        <div *ngFor="let p of pages">
+          <ion-item menuClose (click)="openPage(p)">
+            <ion-icon  [name]="p.icon" color="gray"item-left></ion-icon>
+            <p>{{p.title}}</p>
+          </ion-item>
+        </div> 
+      </ion-list>
+    </div>
+
+<!-- PWA -->
+<!-- 
+    <div id="menu-pwa" showWhen="">
+      <ion-list no-lines>
+        <div *ngFor="let d of menu">
+          <ion-item tappable (click)="toggleDetails(d)">
+            <ion-icon  color="gray" [name]="d.iconLeft" item-left></ion-icon>
+              <p>{{d.title}}</p>
+            <ion-icon item-right [name]="d.icon"></ion-icon>
+          </ion-item>
+          <div class="sub-menu" *ngIf="d.showDetails">
+            <ion-item tappable menuClose item-right *ngFor="let item of d.items" (click)="openPage(item)" >
+              <div>
+                <p>{{item.name}}</p>
+              </div>             
+            </ion-item>
+          </div>
+        </div> 
+
+        <div *ngFor="let p of pages">
+          <ion-item menuClose (click)="openPage(p)">
+            <ion-icon [name]="p.icon" color="gray"item-left></ion-icon>
+              <p>{{p.title}}</p>
+          </ion-item>
+        </div>  
+      </ion-list>
+    <div> -->
+  </ion-content>
+</ion-menu>
+
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

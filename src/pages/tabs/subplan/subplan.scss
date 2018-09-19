@@ -1,0 +1,19 @@
+$categories: (
+    ionic: var(--ion-color-primary),
+    cancelled: #db2f32,
+    Ausfall: #db2f32,
+    substituting: #fff23d,
+    Vertretung: #db2f32,
+    event: #4b9fff,
+   );
+
+page-subplan {
+    @each $track, $value in map-remove($categories) {
+      ion-item-sliding[track=#{$track}] ion-label {
+        border-left: 2px solid $value;
+        padding-left: 10px;
+      }
+    }
+  }
+
+  //   TODO: unbedingt wieder implementieren!

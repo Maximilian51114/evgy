@@ -1,0 +1,220 @@
+<!doctype html>
+<html>
+    <head>
+        <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+        <script src='tabletojson.min.js'></script>
+        <style>
+                table {
+                    font-family: arial, sans-serif;
+                    border-collapse: collapse;
+                    width: 100%;
+                }
+                
+                td, th {
+                    border: 1px solid #dddddd;
+                    text-align: left;
+                    padding: 8px;
+                }
+                
+                tr:nth-child(even) {
+                    background-color: #dddddd;
+                }
+                </style>
+        <script>
+            $(document).ready(function(){
+                $('#btnConvert').click(function(){
+	                $('#result').append(JSON.stringify(makeJsonFromTable('tableToConvert')))
+                    $('#result').show()
+                    alert(JSON.stringify(makeJsonFromTable('tabletoConvert')))
+	            })
+            })
+        </script>
+        <title>jQuery Table2Json Test</title>
+    </head>
+    <body>
+        <table id="tableToConvert">
+            <!--
+                Aufbau --- > <tr>
+                    Stunde - hour
+                    Klasse(n) - class
+                    Lehrer_Alt - teacher_old
+                    Fach_Alt - subject_old
+                    Vertreter - teacher_new
+                    Fach_Neu - subject_new
+                    Raum - room
+                    Art - type
+                    Test - notes
+                       --- > </tr>
+            -->
+            <thead> <!--Nicht vorhanden!-->
+                <tr> 
+                    <th>Stunde</th>
+                    <th>Klasse(n)</th>
+                    <th>(Lehrer)</th>
+                    <th>(Fach)</th>
+                    <th><b>Vertreter</b></th>
+                    <th>Fach</th>
+                    <th>Raum</th>
+                    <th>Art</th>
+                    <th>Vertretungs-Text</th>
+                </tr>
+            </thead>
+            <tbody> <!--Nicht vorhanden!-->
+                <tr>
+                    <td>0/1</td>
+                    <td>&nbsp;</td>
+                    <td><strike>Stei</strike></td>
+                    <td>&nbsp;</td>
+                    <td><b>Heu</b></td>
+                    <td>&nbsp;</td>
+                    <td>Früh</td>
+                    <td>Pausenaufsicht</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>8f</td>
+                    <td><strike>Smit</strike></td>
+                    <td><strike>Ma</strike></td>
+                    <td><strike><b>Smit</b></strike></td>
+                    <td><strike>Ma</strike></td>
+                    <td>---</td>
+                    <td>Entfall</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td><span style="color: #070707">1</span></td>
+                    <td><span style="color: #070707">8s2</span></td>
+                    <td><strike><span style="color: #070707">Kir</span></strike></td>
+                    <td><span style="color: #070707">De</span></td>
+                    <td><b><span style="color: #070707">Klos</span></b></td>
+                    <td><span style="color: #070707">Ge</span></td>
+                    <td><span style="color: #070707">5.01</span></td>
+                    <td><span style="color: #070707">Verlegung</span></td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>10f</td>
+                    <td><strike>Hart</strike></td>
+                    <td><strike>Rel</strike></td>
+                    <td><strike><b>Hart</b></strike></td>
+                    <td><strike>Rel</strike></td>
+                    <td>---</td>
+                    <td>Entfall</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>11</td>
+                    <td><strike>Eng</strike></td>
+                    <td><strike>MusG2</strike></td>
+                    <td><strike><b>Eng</b></strike></td>
+                    <td><strike>MusG2</strike></td>
+                    <td>---</td><td class="list" align="center">Entfall</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>10s2</td>
+                    <td>Sr</td>
+                    <td>Ch</td>
+                    <td><b>Sr</b></td>
+                    <td>Ch</td>
+                    <td>7.01</td>
+                    <td>Raum-Vtr.</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>8s1</td>
+                    <td>Frei</td>
+                    <td>Ph</td>
+                    <td><b>Frei</b></td>
+                    <td>Ph</td>
+                    <td>5.06</td>
+                    <td>Raum-Vtr.</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td><span style="color: #010101">2</span></td>
+                    <td><span style="color: #010101">8s1</span></td>
+                    <td><strike><span style="color: #010101">B-B</span></strike></td>
+                    <td><span style="color: #010101">Spo</span></td>
+                    <td><b><span style="color: #010101">Mil</span></b></td>
+                    <td><span style="color: #010101">De</span></td>
+                    <td><span style="color: #010101">5.06</span></td>
+                    <td><span style="color: #010101">Vertretung</span></td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td><span style="color: #010101">2</span></td>
+                    <td><span style="color: #010101">7s2</span></td>
+                    <td><strike><span style="color: #010101">Gärt</span></strike></td>
+                    <td><span style="color: #010101">De</span></td>
+                    <td><b><span style="color: #010101">Hel</span></b></td>
+                    <td><span style="color: #010101">Ge</span></td>
+                    <td><span style="color: #010101">4.01</span></td>
+                    <td><span style="color: #010101">Vertretung</span></td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td><span style="color: #010101">2</span></td>
+                    <td><span style="color: #010101">9s2</span></td>
+                    <td><strike><span style="color: #010101">Hart</span></strike></td>
+                    <td><span style="color: #010101">Rel</span></td>
+                    <td><b><span style="color: #010101">Se</span></b></td>
+                    <td><span style="color: #010101">Rel</span></td>
+                    <td><span style="color: #010101">6.01</span></td>
+                    <td><span style="color: #010101">Vertretung</span></td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td><span style="color: #070707">2</span></td>
+                    <td><span style="color: #070707">8s2</span></td>
+                    <td><strike><span style="color: #070707">Eng</span></strike></td>
+                    <td><span style="color: #070707">Bio</span></td>
+                    <td><b><span style="color: #070707">Mart</span></b></td>
+                    <td><span style="color: #070707">Spa</span></td>
+                    <td><span style="color: #070707">5.01</span></td>
+                    <td><span style="color: #070707">Verlegung</span></td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>8f</td>
+                    <td>Tost</td>
+                    <td>Ch</td>
+                    <td><b>Tost</b></td>
+                    <td>Ch</td>
+                    <td>5.15</td>
+                    <td>Raum-Vtr.</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>9f</td>
+                    <td>Frei</td>
+                    <td>Ph</td>
+                    <td><b>Frei</b></td>
+                    <td>Ph</td>
+                    <td>6.15</td>
+                    <td>Raum-Vtr.</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>                    
+                    <td>3</td>
+                    <td>11</td>
+                    <td><strike>Schn</strike></td>
+                    <td>&nbsp;</td>
+                    <td><b>Ro</b></td>
+                    <td>Ma</td>
+                    <td>4.10</td>
+                    <td>Betreuung</td>
+                    <td>&nbsp;</td>
+                </tr>
+            </tbody>
+        </table>
+        <input type="button" id="btnConvert" value="Convert"> 
+    </body>
+</html>

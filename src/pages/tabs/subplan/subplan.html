@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-navbar no-border-bottom>
+    <ion-title>Vertretungsplan</ion-title>
+    <ion-buttons left>
+      <button ion-button icon-only menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list #subplanList>
+
+    <ion-item-group *ngFor="let group of items | async;"><!--TODO: fix (ngFor=>AnzahlStunden)-->
+
+      <ion-item-divider color="primary" sticky><!---->
+        <ion-label>
+          {{group.hour}}. Stunde
+        </ion-label>
+      </ion-item-divider>
+
+      <ion-item *ngFor="let item of items | async"><!--TODO: fix-->
+
+        <ion-label *ngIf="item.type === 'Ausfall'">
+          <h3><s><strong>{{item.old_subject}}</strong> bei {{item.old_teacher}}</s></h3>
+          <h3><strong>{{item.type}}</strong></h3>
+        </ion-label>
+
+        <ion-label *ngIf="item.type === 'Vertretung'">
+            <ion-row>
+              <ion-col>
+                <h3><s><strong>{{item.old_subject}}</strong> bei {{item.old_teacher}}</s></h3>
+              </ion-col>
+              <ion-col col-4>
+                <h3><strong>{{item.type}}</strong> bei </h3>
+              </ion-col>
+            </ion-row>
+              <p>{{item.new_teacher}} &mdash; {{item.new_subject}} in Raum {{item.room}}</p>
+        </ion-label>
+
+      </ion-item>
+
+    </ion-item-group>
+
+  </ion-list>
+
+  <ion-list-header [class.hide]="!checkStatus">
+    404: Keine Daten gefunden.
+  </ion-list-header>
+
+  <button ion-button full (click)="downloadAndOpenPdf()">PDF laden und öffnen</button>
+</ion-content>

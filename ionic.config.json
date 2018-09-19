@@ -1,0 +1,7 @@
+{
+  "name": "evgy",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}

@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-navbar no-border-bottom>
+    <ion-title>Termine</ion-title>
+    <ion-buttons left>
+      <button ion-button icon-only menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item-group>
+      <div stlye="timelineBg" *ngFor="let timeline of timeline  | async">
+
+        <ion-item-divider color="primary">
+          <ion-label>
+            {{timeline.date | date: 'fullDate'}}
+          </ion-label>
+        </ion-item-divider>
+
+        <ul class="timeline">
+            <li *ngFor="let list of  timeline.lists | async ">
+              <div class="timeline-item">
+                <p><strong>{{list.title}}</strong></p>
+                <p>{{list.text}}</p>
+                <div class="timeline-stats">
+                  <p>{{list.time_from}} &mdash; {{list.time_to}}</p>
+                  <!-- <span class="pos-absolute-right"><ion-icon name="clock"></ion-icon>vor {{time.timestamp}}</span> -->
+                </div>
+              </div>
+            </li>
+        </ul>
+        
+      </div>
+    </ion-item-group>
+  </ion-list>
+</ion-content>
